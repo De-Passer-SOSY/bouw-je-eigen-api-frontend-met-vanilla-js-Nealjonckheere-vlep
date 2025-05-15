@@ -5,7 +5,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: red;
+    background-color: darkred;
 
 }
 
@@ -32,13 +32,6 @@ main {
 
 
 
-.ButtonGroup {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-
-}
 
 
 
@@ -46,9 +39,9 @@ main {
 
 
 
-.Visual {
+#Visual {
     height: 100%;
-    width: 500px;
+    width: 300px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -75,8 +68,8 @@ main {
 #VisualCamDot {
     border: 3px solid black;
     border-radius: 100px;
-    background-color: darkred;
-    color: darkred;
+    background-color: red;
+    color: red;
     height: 100px;
     width: 100px;
 }
@@ -100,13 +93,30 @@ main {
 }
 
 
+#ButtonVisual {
+    height: 100%;
+    width: 300px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+}
+
+
 .button {
     border: 3px solid black;
     background-color: darkgreen;
     color: darkgreen;
-    width: 150px;
-    height: 100px;
+    width: 112px;
+    height: 75px;
 }
 
 
+.ButtonGroup {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
 
+}
