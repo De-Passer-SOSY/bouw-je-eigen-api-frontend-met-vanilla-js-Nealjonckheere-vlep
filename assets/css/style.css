@@ -108,18 +108,5 @@ main {
     height: 100px;
 }
 
-#Getbutton, #Deletebutton, #Putbutton {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    border: 3px solid black;
-    background-color: darkgreen;
-    font-size: x-large;
-    color: white;
-    width: 150px;
-    height: 100px;
-}
-
 
 
