@@ -19,7 +19,7 @@ main {
     width: 1500px;
 }
 
-#Info {
+#PKScreen {
     border: 6px solid white;
     background-color: deepskyblue;
     height: 800px;
@@ -27,10 +27,7 @@ main {
 
 }
 
-#pokemonGroup {
-    border-bottom: 3px solid white;
-    width:100px;
-}
+
 
 
 
@@ -105,12 +102,15 @@ main {
 }
 
 
-.button {
+.button, #buttonGet, #buttonDelete, #buttonPut, #buttonPost {
     border: 4px solid black;
     background-color: darkgreen;
-    color: darkgreen;
+    color: black;
     width: 112px;
     height: 75px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 
