@@ -72,6 +72,22 @@ app.put("/updatePokemon/:id", async (req, res) => {
     }
 });
 
+app.delete("/deletePokemon/:id", async (req, res) => {
+    const id = parseInt(req.params.id);
+    try {
+
+        const deleted = await db("Pokemon").where({ id }).del();
+        if (deleted === 0) {
+
+            return res.status(404).json({ error: "Pokemon niet gevonden." });
+        }
+
+        res.status(200).json({ message: `Pokemon met ID ${id} verwijderd.` });
+    } catch (err) {
+        res.status(500).json({ error: "Fout bij verwijderen uit de databank." });
+    }
+});
+
 app.listen(3333, () => {
     console.log("Het API draait op http://localhost:3333");
 });
