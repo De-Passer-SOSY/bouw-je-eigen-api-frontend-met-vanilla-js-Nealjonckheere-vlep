@@ -1,0 +1,117 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Afwezigheden API",
+    "version": "1.0.0",
+    "description": "Een eenvoudige API voor studentafwezigheden"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3333"
+    }
+  ],
+  "paths": {
+    "/absences": {
+      "get": {
+        "summary": "Toon alle Pokemon",
+        "responses": {
+          "200": {
+            "description": "Lijst van Pokemon"
+          }
+        }
+      }
+    },
+    "/absence/{id}": {
+      "get": {
+        "summary": "Toon één Pokemon",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": { "type": "integer" }
+          }
+        ],
+        "responses": {
+          "200": { "description": "Pokemon gevonden" },
+          "404": { "description": "Niet gevonden" }
+        }
+      }
+    },
+    "/newAbsence": {
+      "post": {
+        "summary": "Voeg een pokemon toe",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id": { "type": "string" },
+                  "name": { "type": "string" },
+                  "type": { "type": "string"},
+                  "gigantamax": { "type": "string" }
+                },
+                "required": ["id", "name", "type", "gigantamax"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": { "description": "Afwezigheid toegevoegd" }
+        }
+      }
+    },
+    "/updateAbsence/{id}": {
+      "put": {
+        "summary": "Wijzig een afwezigheid",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": { "type": "integer" }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id": { "type": "string" },
+                  "name": { "type": "string" },
+                  "type": { "type": "string"},
+                  "gigantamax": { "type": "string" }
+                },
+                "required": ["id", "name", "type", "gigantamax"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": { "description": "Pokemone bijgewerkt" }
+        }
+      }
+    },
+    "/deleteAbsence/{id}": {
+      "delete": {
+        "summary": "Verwijder een pokemon",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": { "type": "integer" }
+          }
+        ],
+        "responses": {
+          "200": { "description": "Verwijderd" },
+          "404": { "description": "Niet gevonden" }
+        }
+      }
+    }
+  }
+}
