@@ -17,7 +17,7 @@ app.get("/pokemon/", async (req, res) => {
 });
 
 
-app.get("/pokemon/:id", async (req, res) => {
+app.get("/Getpokemon/:id", async (req, res) => {
     const id = parseInt(req.params.id);
     try {
         const pokemon = await db("Pokemon").where({ id }).first();
