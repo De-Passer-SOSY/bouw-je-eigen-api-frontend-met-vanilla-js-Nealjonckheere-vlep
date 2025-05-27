@@ -10,6 +10,32 @@
 <header>
     <p>PokeDex</p>
 </header>
+<section class="form-section hidden" id="form-wrapper" aria-label="Afwezigheid toevoegen of wijzigen">
+    <form id="pokemon-form">
+        <input type="hidden" id="pokemonID" />
+        <section class="form-group">
+            <label for="PokemonNaam">Pokemon Naam</label>
+            <input type="text" id="PokemonNaam" required />
+        </section>
+        <section class="form-group">
+            <label for="Type"></label>
+            <input id="Type" required />
+        </section>
+
+        <section class="form-group">
+            <label for="Gigantamax"></label>
+            <input id="Gigantamax" required>
+            </select>
+        </section>
+        <button type="submit" class="save-btn">Registeer</button>
+    </form>
+</section>
+
+
+<section class="add-button-section" aria-label="Nieuwe Pokemon">
+    <button class="open-form-btn right-align" id="open-form">Nieuwe Pokemon</button>
+</section>
+
 <main>
     <article id="Visual">
         <section id="VisualCam"></section>
@@ -51,7 +77,7 @@
 
     </article>
 
-    
+
 </main>
 <footer>Neal</footer>
 

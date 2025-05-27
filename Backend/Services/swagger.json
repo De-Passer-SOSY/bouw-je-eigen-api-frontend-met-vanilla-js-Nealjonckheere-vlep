@@ -1,9 +1,9 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "title": "Afwezigheden API",
+    "title": "pokemon API",
     "version": "1.0.0",
-    "description": "Een eenvoudige API voor studentafwezigheden"
+    "description": "Een eenvoudige API voor pokemone"
   },
   "servers": [
     {
@@ -11,7 +11,7 @@
     }
   ],
   "paths": {
-    "/absences": {
+    "/Getpokemon": {
       "get": {
         "summary": "Toon alle Pokemon",
         "responses": {
@@ -21,7 +21,7 @@
         }
       }
     },
-    "/absence/{id}": {
+    "/pokemon": {
       "get": {
         "summary": "Toon één Pokemon",
         "parameters": [
@@ -38,7 +38,7 @@
         }
       }
     },
-    "/newAbsence": {
+    "/NewPokemon": {
       "post": {
         "summary": "Voeg een pokemon toe",
         "requestBody": {
@@ -53,19 +53,19 @@
                   "type": { "type": "string"},
                   "gigantamax": { "type": "string" }
                 },
-                "required": ["id", "name", "type", "gigantamax"]
+                "required": [ "name", "type", "gigantamax"]
               }
             }
           }
         },
         "responses": {
-          "201": { "description": "Afwezigheid toegevoegd" }
+          "201": { "description": "Pokemon toegevoegd" }
         }
       }
     },
-    "/updateAbsence/{id}": {
+    "/updatePokemon/{id}": {
       "put": {
-        "summary": "Wijzig een afwezigheid",
+        "summary": "Wijzig een pokemon",
         "parameters": [
           {
             "in": "path",
@@ -86,7 +86,7 @@
                   "type": { "type": "string"},
                   "gigantamax": { "type": "string" }
                 },
-                "required": ["id", "name", "type", "gigantamax"]
+                "required": ["name", "type", "gigantamax"]
               }
             }
           }
@@ -96,7 +96,7 @@
         }
       }
     },
-    "/deleteAbsence/{id}": {
+    "/deletePokemon/{id}": {
       "delete": {
         "summary": "Verwijder een pokemon",
         "parameters": [

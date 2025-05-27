@@ -12,11 +12,18 @@ body {
 
 main {
     display: flex;
-    flex-direction:row;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
     height: 1000px;
     width: 1500px;
+}
+
+
+main td {
+    background-color: deepskyblue;
+    border-bottom: 3px solid white;
+    width: 100%;
 }
 
 #PKScreen {
@@ -29,15 +36,6 @@ main {
 }
 
 
-
-
-
-
-
-
-
-
-
 #Visual {
     height: 100%;
     width: 300px;
@@ -48,7 +46,7 @@ main {
 
 }
 
-#DotGroup{
+#DotGroup {
     height: 400px;
     display: flex;
     flex-direction: column;
@@ -121,4 +119,8 @@ main {
     justify-content: space-between;
     align-items: center;
 
+}
+
+.hidden {
+    display: none;
 }
