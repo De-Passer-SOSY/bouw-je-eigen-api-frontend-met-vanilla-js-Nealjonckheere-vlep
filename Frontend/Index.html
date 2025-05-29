@@ -18,15 +18,39 @@
             <input type="text" id="PokemonNaam" required />
         </section>
         <section class="form-group">
-            <label for="Type"></label>
-            <input id="Type" required />
-        </section>
-
-        <section class="form-group">
-            <label for="Gigantamax"></label>
-            <input id="Gigantamax" required>
+            <label for="Type">Type</label>
+            <select id="Type" required>
+                <option value="">Kies een type</option>
+                <option value="Normal">Normal</option>
+                <option value="Fire">Fire</option>
+                <option value="Water">Water</option>
+                <option value="Electric">Electric</option>
+                <option value="Grass">Grass</option>
+                <option value="Ice">Ice</option>
+                <option value="Fighting">Fighting</option>
+                <option value="Poison">Poison</option>
+                <option value="Ground">Ground</option>
+                <option value="Flying">Flying</option>
+                <option value="Psychic">Psychic</option>
+                <option value="Bug">Bug</option>
+                <option value="Rock">Rock</option>
+                <option value="Ghost">Ghost</option>
+                <option value="Dragon">Dragon</option>
+                <option value="Dark">Dark</option>
+                <option value="Steel">Steel</option>
+                <option value="Fairy">Fairy</option>
             </select>
         </section>
+
+
+        <section class="form-group">
+            <label for="Gigantamax">Gigantamax</label>
+            <select id="Gigantamax" required>
+                <option value="1">Ja</option>
+                <option value="0">Nee</option>
+            </select>
+        </section>
+
         <button type="submit" class="save-btn">Registeer</button>
     </form>
 </section>
