@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+
 /* HoofdGedeelt van mijn css */
 
 body {
@@ -121,6 +124,197 @@ main td {
 
 }
 
+.dlt-btn {border-color: red;
+    color: white;
+    background-color: red;
+    border-radius: 10px;
+    padding: 15px 32px;
+}
+
+
+.et-btn {border-color: lightblue;
+    color: white;
+    background-color: lightblue;
+    border-radius: 10px;
+    padding: 15px 32px;
+}
+
+.Pokedex {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+
+}
+
 .hidden {
     display: none;
 }
+
+.type-Water {
+    color: white;
+    font-family: 'Press Start 2P', cursive;
+    background-color: blue;
+    font-size: x-small;
+    border-radius: 10px;
+    padding: 15px 32px;
+}
+
+.type-Fire {
+    color: white;
+    font-family: 'Press Start 2P', cursive;
+    background-color: orangered;
+    font-size: x-small;
+    border-radius: 10px;
+    padding: 15px 32px;
+}
+
+.type-Bug {
+    color: white;
+    font-family: 'Press Start 2P', cursive;
+    background-color: lawngreen;
+    font-size: x-small;
+    border-radius: 10px;
+    padding: 15px 32px;
+}
+
+.type-Grass {
+    color: white;
+    font-family: 'Press Start 2P', cursive;
+    background-color: Green;
+    font-size: x-small;
+    border-radius: 10px;
+    padding: 15px 32px;
+}
+
+.type-Fairy {
+    color: white;
+    font-family: 'Press Start 2P', cursive;
+    background-color: #E597E8;
+    font-size: x-small;
+    border-radius: 10px;
+    padding: 15px 32px;
+}
+
+.type-Dark {
+    color: white;
+    font-family: 'Press Start 2P', cursive;
+    background-color: #503C2F;
+    font-size: x-small;
+    border-radius: 10px;
+    padding: 15px 32px;
+}
+
+.type-Electric {
+    color: white;
+    font-family: 'Press Start 2P', cursive;
+    background-color: yellow;
+    font-size: x-small;
+    border-radius: 10px;
+    padding: 15px 32px;
+}
+
+.type-Rock {
+    color: white;
+    font-family: 'Press Start 2P', cursive;
+    background-color:  #B39B53;
+    font-size: x-small;
+    border-radius: 10px;
+    padding: 15px 32px;
+}
+
+.type-Ground {
+    color: white;
+    font-family: 'Press Start 2P', cursive;
+    background-color:  #CBAC51;
+    font-size: x-small;
+    border-radius: 10px;
+    padding: 15px 32px;
+}
+
+.type-Fighting {
+    color: white;
+    font-family: 'Press Start 2P', cursive;
+    background-color: #80341A;
+    font-size: x-small;
+    border-radius: 10px;
+    padding: 15px 32px;
+}
+
+.type-Ghost {
+    color: white;
+    font-family: 'Press Start 2P', cursive;
+    background-color: #5F60AF;
+    font-size: x-small;
+    border-radius: 10px;
+    padding: 15px 32px;
+}
+
+.type-Psychic {
+    color: white;
+    font-family: 'Press Start 2P', cursive;
+    background-color: #EC4881;
+    font-size: x-small;
+    border-radius: 10px;
+    padding: 15px 32px;
+}
+
+.type-Ice {
+    color: white;
+    font-family: 'Press Start 2P', cursive;
+    background-color: #70D3F4;
+    font-size: x-small;
+    border-radius: 10px;
+    padding: 15px 32px;
+}
+.type-Normal {
+    color: white;
+    font-family: 'Press Start 2P', cursive;
+    background-color: #C2BFB5;
+    font-size: x-small;
+    border-radius: 10px;
+    padding: 15px 32px;
+}
+
+.type-Poison {
+    color: white;
+    font-family: 'Press Start 2P', cursive;
+    background-color: #954895;
+    font-size: x-small;
+    border-radius: 10px;
+    padding: 15px 32px;
+}
+
+.type-Steel {
+    color: white;
+    font-family: 'Press Start 2P', cursive;
+    background-color:#B5B5C4;
+    font-size: x-small;
+    border-radius: 10px;
+    padding: 15px 32px;
+}
+
+.type-Dragon {
+    color: white;
+    font-family: 'Press Start 2P', cursive;
+    background-color:#7661E1;
+    font-size: x-small;
+    border-radius: 10px;
+    padding: 15px 32px;
+}
+
+.type-Flying {
+    color: white;
+    font-family: 'Press Start 2P', cursive;
+    background-color:#5C75D1;
+    font-size: x-small;
+    border-radius: 10px;
+    padding: 15px 32px;
+}
+
+
+
+
+
+
+

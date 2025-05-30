@@ -16,6 +16,9 @@ function init() {
     });
 
     form.addEventListener('submit', handleFormSubmit);
+
+
+    typing();
 }
 
 function fetchpokemon() {
@@ -33,21 +36,40 @@ function showPokemon(pokemonList) {
     list.innerHTML = "";
 
     pokemonList.forEach(pokemon => {
+        const typeClass = `type-${pokemon.type}`;
         const row = document.createElement("tr");
         row.innerHTML = `
-            <td>${pokemon.id}</td>
-            <td>${pokemon.name}</td>
-            <td>${pokemon.type}</td>
-            <td>${pokemon.gigantamax === 1 ? 'Ja' : 'Nee'}</td>
-            <td>
-                <button class="et-btn" data-id="${pokemon.id}">Bewerk</button>
-                <button class="dlt-btn" data-id="${pokemon.id}">Verwijder</button>
-            </td>
+            <section class="Pokedex">
+                <td>${pokemon.id}</td>
+                <td>${pokemon.name}</td>
+                <td><span class="${typeClass}">${pokemon.type}</span></td>
+                <td>${pokemon.gigantamax === 1 ? 'Ja' : 'Nee'}</td>
+                <td><button class="et-btn" data-id="${pokemon.id}">Bewerk</button></td> 
+                <td><button class="dlt-btn" data-id="${pokemon.id}">Verwijder</button></td>
+            </section>
         `;
         list.appendChild(row);
         row.querySelector(".et-btn").addEventListener("click", () => editpokemon(pokemon.id));
         row.querySelector(".dlt-btn").addEventListener("click", () => deletepokemon(pokemon.id));
     });
+}
+
+function typing() {
+    try {const types = [
+        "Normal", "Fire", "Water", "Electric", "Grass", "Ice", "Fighting",
+        "Poison", "Ground", "Flying", "Psychic", "Bug", "Rock", "Ghost",
+        "Dragon", "Dark", "Steel", "Fairy"
+    ];
+
+    const paragraph = document.getElementById("beschrijving");
+
+    const typeRegex = new RegExp(`\\b(${types.join("|")})\\b`, "g");
+
+    if (paragraph) {
+        paragraph.innerHTML = paragraph.innerHTML.replace(typeRegex, (match) => {
+            return `<span class="type-${match}">${match}</span>`;
+        });
+    }}catch(error){console.log("Fout bij ophalen van Pokémon type", error)}
 }
 
 function handleFormSubmit(e) {
