@@ -11,6 +11,8 @@
     <p>PokeDex</p>
 </header>
 <section class="form-section hidden" id="form-wrapper" aria-label="Afwezigheid toevoegen of wijzigen">
+
+
     <form id="pokemon-form">
         <input type="hidden" id="pokemonID" />
         <section class="form-group">
@@ -46,18 +48,17 @@
         <section class="form-group">
             <label for="Gigantamax">Gigantamax</label>
             <select id="Gigantamax" required>
-                <option value="1">Ja</option>
-                <option value="0">Nee</option>
+                <option>Yes</option>
+                <option>No</option>
             </select>
         </section>
-
-        <button type="submit" class="save-btn">Registeer</button>
+        <button type="submit" class="save-btn">Save Pokemon</button>
     </form>
 </section>
 
 
 <section class="add-button-section" aria-label="Nieuwe Pokemon">
-    <button class="open-form-btn right-align" id="open-form">Nieuwe Pokemon</button>
+    <button class="PokedexRegister" id="open-form">Nieuwe Pokemon</button>
 </section>
 
 <main>
@@ -81,8 +82,6 @@
 
     <article id="ButtonVisual">
         <section class="ButtonGroup">
-            <section id="buttonGet">Get</section>
-            <section id="buttonPut">Put</section>
             <section class="button"></section>
             <section class="button"></section>
             <section class="button"></section>
@@ -90,8 +89,6 @@
             <section class="button"></section>
         </section>
         <section class="ButtonGroup">
-            <section id="buttonPost">Post</section>
-            <section id="buttonDelete">Delete</section>
             <section class="button"></section>
             <section class="button"></section>
             <section class="button"></section>

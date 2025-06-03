@@ -17,7 +17,6 @@ function init() {
 
     form.addEventListener('submit', handleFormSubmit);
 
-
     typing();
 }
 
@@ -43,7 +42,8 @@ function showPokemon(pokemonList) {
                 <td>${pokemon.id}</td>
                 <td>${pokemon.name}</td>
                 <td><span class="${typeClass}">${pokemon.type}</span></td>
-                <td>${pokemon.gigantamax === 1 ? 'Ja' : 'Nee'}</td>
+                <td> <img src="assets/img/SmallX.png" height="37" width="50" alt="Dyna"/></td>
+                <td>${pokemon.gigantamax}</td>
                 <td><button class="et-btn" data-id="${pokemon.id}">Bewerk</button></td> 
                 <td><button class="dlt-btn" data-id="${pokemon.id}">Verwijder</button></td>
             </section>
@@ -55,21 +55,24 @@ function showPokemon(pokemonList) {
 }
 
 function typing() {
-    try {const types = [
-        "Normal", "Fire", "Water", "Electric", "Grass", "Ice", "Fighting",
-        "Poison", "Ground", "Flying", "Psychic", "Bug", "Rock", "Ghost",
-        "Dragon", "Dark", "Steel", "Fairy"
-    ];
+    try {
+        const types = [
+            "Normal", "Fire", "Water", "Electric", "Grass", "Ice", "Fighting",
+            "Poison", "Ground", "Flying", "Psychic", "Bug", "Rock", "Ghost",
+            "Dragon", "Dark", "Steel", "Fairy"
+        ];
 
-    const paragraph = document.getElementById("beschrijving");
+        const paragraph = document.getElementById("beschrijving");
+        const typeRegex = new RegExp(`\\b(${types.join("|")})\\b`, "g");
 
-    const typeRegex = new RegExp(`\\b(${types.join("|")})\\b`, "g");
-
-    if (paragraph) {
-        paragraph.innerHTML = paragraph.innerHTML.replace(typeRegex, (match) => {
-            return `<span class="type-${match}">${match}</span>`;
-        });
-    }}catch(error){console.log("Fout bij ophalen van Pokémon type", error)}
+        if (paragraph) {
+            paragraph.innerHTML = paragraph.innerHTML.replace(typeRegex, (match) => {
+                return `<span class="type-${match}">${match}</span>`;
+            });
+        }
+    } catch (error) {
+        console.log("Fout bij ophalen van Pokémon type", error);
+    }
 }
 
 function handleFormSubmit(e) {
@@ -78,7 +81,7 @@ function handleFormSubmit(e) {
     const id = document.getElementById('pokemonID').value;
     const name = document.getElementById('PokemonNaam').value;
     const type = document.getElementById('Type').value;
-    const gigantamax = parseInt(document.getElementById('Gigantamax').value);
+    const gigantamax = document.getElementById('Gigantamax').value;
 
     const pokemon = { name, type, gigantamax };
 
@@ -96,9 +99,15 @@ function handleFormSubmit(e) {
             showAlert(id ? 'Pokemon bijgewerkt!' : 'Pokemon toegevoegd!', 'success');
             fetchpokemon();
             document.getElementById('form-wrapper').classList.add('hidden');
+
+            document.getElementById('pokemonID').value = "";
+            document.getElementById('PokemonNaam').value = "";
+            document.getElementById('Type').value = "";
+            document.getElementById('Gigantamax').value = "No";
         })
         .catch(() => showAlert('❌ Er ging iets mis.', 'error'));
 }
+
 
 function editpokemon(id) {
     fetch(`http://localhost:3333/Getpokemon/${id}`)
@@ -107,8 +116,7 @@ function editpokemon(id) {
             document.getElementById('pokemonID').value = data.id;
             document.getElementById('PokemonNaam').value = data.name;
             document.getElementById('Type').value = data.type;
-            document.getElementById('Gigantamax').value = data.gigantamax.toString();
-
+            document.getElementById('Gigantamax').value = data.gigantamax;
             document.getElementById('form-wrapper').classList.remove('hidden');
         })
         .catch(() => showAlert('Kan Pokémon niet laden.', 'error'));
