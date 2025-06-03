@@ -30,6 +30,22 @@ function fetchpokemon() {
         .catch(error => console.log("Fout bij ophalen van Pokémon:", error));
 }
 
+async function fetchSprite(name, elementId) {
+    try {
+        const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${name.toLowerCase()}`);
+        const data = await response.json();
+        const spriteUrl = data.sprites.versions["generation-viii"].icons.front_default;
+
+        if (spriteUrl) {
+            document.getElementById(elementId).src = spriteUrl;
+        } else {
+            console.warn(`Geen sprite gevonden voor ${name}`);
+        }
+    } catch (error) {
+        console.error(`Fout bij ophalen sprite voor ${name}:`, error);
+    }
+}
+
 function showPokemon(pokemonList) {
     const list = document.getElementById("pokemonGroup");
     list.innerHTML = "";
@@ -37,9 +53,12 @@ function showPokemon(pokemonList) {
     pokemonList.forEach(pokemon => {
         const typeClass = `type-${pokemon.type}`;
         const row = document.createElement("tr");
+        const spriteId = `sprite-${pokemon.id}`;
+
         row.innerHTML = `
             <section class="Pokedex">
                 <td>${pokemon.id}</td>
+                <td><img id="${spriteId}" src="assets/img/placeholder.png" height="50" width="50" alt="Deze werd niet gevonden"/></td>
                 <td>${pokemon.name}</td>
                 <td><span class="${typeClass}">${pokemon.type}</span></td>
                 <td> <img src="assets/img/SmallX.png" height="37" width="50" alt="Dyna"/></td>
@@ -49,6 +68,9 @@ function showPokemon(pokemonList) {
             </section>
         `;
         list.appendChild(row);
+
+        fetchSprite(pokemon.name, spriteId);
+
         row.querySelector(".et-btn").addEventListener("click", () => editpokemon(pokemon.id));
         row.querySelector(".dlt-btn").addEventListener("click", () => deletepokemon(pokemon.id));
     });
@@ -108,7 +130,6 @@ function handleFormSubmit(e) {
         .catch(() => showAlert('❌ Er ging iets mis.', 'error'));
 }
 
-
 function editpokemon(id) {
     fetch(`http://localhost:3333/Getpokemon/${id}`)
         .then(res => res.json())
@@ -143,3 +164,4 @@ function showAlert(message, type = 'success') {
     alertBox.classList.remove('hidden');
     setTimeout(() => alertBox.classList.add('hidden'), 3000);
 }
+
