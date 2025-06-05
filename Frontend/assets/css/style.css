@@ -1,7 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
 
 
 /* HoofdGedeelt van mijn css */
+
+
+
 
 body {
     display: flex;
@@ -11,6 +15,8 @@ body {
     background-color: darkred;
 
 }
+
+
 
 
 main {
@@ -93,11 +99,8 @@ main td {
 }
 
 
-.open-form-btn{
 
-}
 
-#type, #PokemonNaam,
 
 
 #ButtonVisual {
@@ -154,34 +157,66 @@ main td {
 
 }
 
+
+#form-wrapper{
+    width:100%;
+}
+
 .PokedexRegister, .save-btn {
-    background-color: orangered;
-    width:250px;
-    border-radius: 20px;
-    height: 32px;
+    background-color: white;
+    width: 175px;
+    border-radius: 10px;
+    height:55px;
+}
+
+.save-btn {
+    border: none;
+    margin-right: 8px;
+    background-color: #5F60AF;
 }
 
 
-#pokemon-form, .form-group {
-    border: 3px solid white;
-    background-color: white;
+#pokemon-form {
+    border: 5px solid white;
+    background-color: #00BFFF;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
-    height: 500px;
-    width:400px;
+   height: 500px;
+    width: 100%;
 
+}
+
+.form-group{
+    background-color: #00BFFF;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height:200px;
+}
+
+.form-group select, input{
+    border: 4px solid black;
+    border-radius: 10px;
+    height: 90px;
+    font-size: large;
+    margin-bottom: 10px;
 }
 
 #pokemon-form  label{
     text-align: center;
-    border: 2px  black solid;
-    background-color: orangered;
     width:250px;
     height: 32px;
+    margin:auto;
+    font: bold 32px Lato;
 
 }
+
+.PokeFonts {
+    font-family: 'Press Start 2P', cursive;
+}
+
 
 .hidden {
     display: none;

@@ -32,16 +32,28 @@ function fetchpokemon() {
 
 async function fetchSprite(name, elementId) {
     try {
-        const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${name.toLowerCase()}`);
+        const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`);
         const data = await response.json();
-        const spriteUrl = data.sprites.versions["generation-viii"].icons.front_default;
+        // deze voor sprites te gebruiken als je ze wilt zien toch :)
+
+        // const spriteUrl = data.sprites.versions["generation-viii"].icons.front_default;
+
+        //Gif versies van pokemon
+        const spriteUrl = data.sprites.other.showdown.front_default;
+
+        // Oh en voor degen die niet gevonden zijn is het omdat er gene gemaakt zijn voor die pokemon in de api Oftewel bestaat de pokemon niet als je 1 opmaakt
+
+
 
         if (spriteUrl) {
             document.getElementById(elementId).src = spriteUrl;
         } else {
             console.warn(`Geen sprite gevonden voor ${name}`);
         }
-    } catch (error) {
+
+
+
+} catch (error) {
         console.error(`Fout bij ophalen sprite voor ${name}:`, error);
     }
 }
@@ -59,10 +71,10 @@ function showPokemon(pokemonList) {
             <section class="Pokedex">
                 <td>${pokemon.id}</td>
                 <td><img id="${spriteId}" src="assets/img/placeholder.png" height="50" width="50" alt="Deze werd niet gevonden"/></td>
-                <td>${pokemon.name}</td>
+                <td class="PokeFonts">${pokemon.name}</td>
                 <td><span class="${typeClass}">${pokemon.type}</span></td>
                 <td> <img src="assets/img/SmallX.png" height="37" width="50" alt="Dyna"/></td>
-                <td>${pokemon.gigantamax}</td>
+                <td class="PokeFonts">${pokemon.gigantamax}</td>
                 <td><button class="et-btn" data-id="${pokemon.id}">Bewerk</button></td> 
                 <td><button class="dlt-btn" data-id="${pokemon.id}">Verwijder</button></td>
             </section>
@@ -70,6 +82,7 @@ function showPokemon(pokemonList) {
         list.appendChild(row);
 
         fetchSprite(pokemon.name, spriteId);
+
 
         row.querySelector(".et-btn").addEventListener("click", () => editpokemon(pokemon.id));
         row.querySelector(".dlt-btn").addEventListener("click", () => deletepokemon(pokemon.id));
@@ -85,10 +98,10 @@ function typing() {
         ];
 
         const paragraph = document.getElementById("beschrijving");
-        const typeRegex = new RegExp(`\\b(${types.join("|")})\\b`, "g");
+        const typecolor = new RegExp(`\\b(${types.join("|")})\\b`, "g");
 
         if (paragraph) {
-            paragraph.innerHTML = paragraph.innerHTML.replace(typeRegex, (match) => {
+            paragraph.innerHTML = paragraph.innerHTML.replace(typecolor, (match) => {
                 return `<span class="type-${match}">${match}</span>`;
             });
         }
